@@ -15,3 +15,14 @@ The roadmap has these milestones:
 1. Obtain the representation of a generic schematic from kicad( in the beginning , in the future also from other schematic editors ) and translating it into a graphical representation of its basic components, peripheral and connections.
 
 2. Connect the elements of the gui to qemu output through the qapi-rs library.
+
+## Usage
+
+Clone the repo and after installing Cargo run: 
+
+```
+cargo run
+
+```
+
+For now it's been tested on windows only, but the gui library is compatible with Unix, Mac, Windows, Android(should be?) and the web, so in theory(but I haven't tried sofar) should work in a browser via web assembly.
