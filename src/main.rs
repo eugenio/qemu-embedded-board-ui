@@ -1,10 +1,7 @@
-
-
-
-
+use crate::schematic_serializer::*;
 use rand::Rng;
 use iced::{Container,Sandbox,Button,Length,Settings,Text,Svg,Element,Scrollable,Column,button,scrollable};
-
+mod schematic_serializer;
 
 struct App{
 	column_number: u8,
@@ -100,7 +97,8 @@ impl Sandbox for App {
 				.push(Text::new(text))
 				.push(Svg::from_path(format!("{}/resources/{}",env!("CARGO_MANIFEST_DIR"),String::from(led_figure_name))).width(Length::Shrink).height(Length::Shrink))
 				.push(Button::new( &mut self.on_button, Text::new( on_button_text)).on_press(Message::OnPressed))
-				.push(Button::new( &mut self.off_button, Text::new( off_button_text)).on_press(Message::OffPressed));
+				.push(Button::new( &mut self.off_button, Text::new( off_button_text)).on_press(Message::OffPressed))
+				.push(Text::new(get_file_content()));
 		Scrollable::new(&mut self.scroll).padding(40).push(Container::new(col).width(Length::Fill).center_x()).into()
 		}
 
